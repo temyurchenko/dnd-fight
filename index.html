@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-09-07 Sat 23:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Boss Fight</title>
+<meta name="author" content="Artem Yurchenko" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="content" class="content">
+
+<div id="outline-container-orgc4999c8" class="outline-2">
+<h2 id="orgc4999c8">Introduction</h2>
+<div class="outline-text-2" id="text-orgc4999c8">
+<p>
+You and your friend have been playing a game of Dungeons and
+Dragons<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. Through mud and dust, blood and iron, you two marched
+on. Battles and puzzles are left behind, your characters are taking
+their final short rest before facing the final boss. They steel their
+hearts and step into the cave. But why is the Dungeon Master smiling
+so slyly?.. The cruel twist of the story&#x2014;the final boss is your
+friend! Now, don&rsquo;t let your arm tremble&#x2014;you will perish if your pity
+your newfound enemy.
+</p>
+</div>
+
+<div id="outline-container-orga267bed" class="outline-3">
+<h3 id="orga267bed">Rules</h3>
+<div class="outline-text-3" id="text-orga267bed">
+<p>
+Yours and your friend&rsquo;s characters both have <code>TOTAL_HP</code> points of
+health, where <code>TOTAL_HP</code> defaults to 100.
+</p>
+
+<p>
+You are taking turns attacking each other. The first one to lower the
+HP of their opponent to zero (or less) wins.
+</p>
+
+<p>
+You both also just happen to prefer using only one spell: &ldquo;Advanced
+Magic Missile&rdquo;. Every turn, you can choose to cast that spell at a
+level from 1 to 10. At level 1 the spell creates a magic dart that
+deals 1d6 damage<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> to your opponent. For each level above 1, the
+spell conjures an additional dart, each dealing 1d6 damage.
+</p>
+</div>
+
+<div id="outline-container-org4a66113" class="outline-4">
+<h4 id="org4a66113">Critical misses</h4>
+<div class="outline-text-4" id="text-org4a66113">
+<p>
+If either one of the dice rolls 1, it&rsquo;s considered a critical miss. On
+a critical miss, all of your darts deal one damage in <i>total</i>.
+</p>
+
+<p>
+So, if you are casting &ldquo;Advanced Magic Missile&rdquo; at level 5, and roll
+4, 3, 3, 1, 5, the total damage you deal to your opponent is 1.
+</p>
+
+<p>
+That would be it, but we have to add more stuff to make the
+programming more involved.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbdd115b" class="outline-4">
+<h4 id="orgbdd115b">A &ldquo;Heavy Tome&rdquo; spell</h4>
+<div class="outline-text-4" id="text-orgbdd115b">
+<p>
+You have access to another spell that you can use instead of the
+&ldquo;Advanced Magic Missile&rdquo; on your turn. The &ldquo;Heavy Tome&rdquo; spell
+is rather complicated. It conjures a book that you use to hit your
+opponent. The damage dealt by the book is calculated as three times
+the absolute difference between:
+</p>
+<ol class="org-ol">
+<li>The tens digit of your current HP.</li>
+<li>The ones digit of your opponent&rsquo;s HP.</li>
+</ol>
+
+<p>
+For example, if have 37 HP left and your opponent has 52 HP, the
+absolute difference is 1 (difference between 3 and 2), so the
+resulting book isn&rsquo;t very thick and deals just 3 (1 * 3) damage.
+</p>
+
+<p>
+If the absolute difference is zero, the book deals 1 damage instead.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga839626" class="outline-4">
+<h4 id="orga839626">An &ldquo;I Love Math&rdquo; concentration spell</h4>
+<div class="outline-text-4" id="text-orga839626">
+<p>
+You are additionally maintaining an ever-present concentration
+spell. The effect is the following. At the end of your turn, if your
+opponent&rsquo;s HP has exactly 3 or 4 factors (including 1 and the number
+itself), the spell automatically reduces their HP to the nearest lower
+prime number.
+</p>
+
+<p>
+For example, if after your turn the opponent has 49 HP, since 49 has
+exactly three factors (1, 7, and 49), the spell will trigger. The
+closest lower prime number is 47, so the opponent&rsquo;s HP is reduced
+further to 47.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org096a8a7" class="outline-2">
+<h2 id="org096a8a7">Problem 0</h2>
+<div class="outline-text-2" id="text-org096a8a7">
+<p>
+Download the files <a href="code/dice.py"><code>dice.py</code></a>, <a href="code/dnd.py"><code>dnd.py</code></a>, <a href="code/dnd_ui.py"><code>dnd_ui.py</code></a> and place them in
+the same directory. You&rsquo;ll write your solutions in <code>dnd.py</code>.
+</p>
+
+<p>
+The <code>dnd_ui.py</code> will be useful for simulating the fight once you&rsquo;re
+finished with Problem 5.
+</p>
+
+<p>
+The <code>dice.py</code> file represents dice using non-pure zero-argument
+functions. These functions are non-pure because they may have
+different return values each time they are called, and so a
+side-effect of calling the function is changing what will be returned
+when the function is called again.
+</p>
+
+<p>
+Open the <code>dice.py</code> file and read its documentation.
+</p>
+
+<p>
+Make sure to format your solutions using <a href="https://github.com/psf/black?tab=readme-ov-file#usage">black</a>. Once you&rsquo;ve installed
+<code>black</code>, just run <code>black .</code> in the directory with the source files.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0dda7f8" class="outline-2">
+<h2 id="org0dda7f8">Problem 1</h2>
+<div class="outline-text-2" id="text-org0dda7f8">
+<p>
+Implement the <code>magic_missile</code> function in <code>dnd.py</code>. It takes two
+arguments: a positive integer called <code>spell_level</code>, which specifies
+the level at which to cast the spell, and a dice function. It returns
+the total of damage of the spell: either the sum of <code>spell_level</code> dice
+rolls or or 1 (critical miss).
+</p>
+
+<p>
+To obtain a single outcome of a dice roll, call <code>dice()</code>. You should
+call <code>dice()</code> exactly <code>spell_level</code> times in the body of <code>magic_missile</code>.
+</p>
+
+<p>
+Remember to call <code>dice()</code> exactly <code>spell_level</code> times even if a
+critical miss happens in the middle of rolling. By doing so, you will
+correctly simulate rolling all the dice together (and the user
+interface will work correctly).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb8c095" class="outline-2">
+<h2 id="orgbb8c095">Problem 2</h2>
+<div class="outline-text-2" id="text-orgbb8c095">
+<p>
+Implement <code>heavy_tome</code>, which takes the player&rsquo;s current HP
+<code>player_hp</code> and the opponent&rsquo;s current HP <code>opponent_hp</code>, and returns
+the amount of damage dealt when the player uses the &ldquo;Heavy Tome&rdquo; spell
+instead of casting &ldquo;Advanced Magic Missile.&rdquo;
+</p>
+
+<blockquote>
+<p>
+Don&rsquo;t assume that HP values are below 100. Write your
+<code>heavy_tome</code> function so that it works correctly for any
+non-negative HP.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Important</b>: Your implementation should not use <code>str</code>, lists, or
+contain square brackets <code>[]</code>. The test cases will check if those have
+been used.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgde1addc" class="outline-2">
+<h2 id="orgde1addc">Problem 3</h2>
+<div class="outline-text-2" id="text-orgde1addc">
+<p>
+Implement the <code>take_turn</code> function, which returns the damage dealt on
+a turn by either casting &ldquo;Advanced Magic Missile&rdquo; at level
+<code>spell_level</code> or casting &ldquo;Heavy Tome&rdquo; if <code>spell_level</code> is
+zero.
+</p>
+
+<p>
+Your implementation of <code>take_turn</code> should call both the
+<code>magic_missile</code> and <code>heavy_tome</code> functions rather than
+repeating their implementations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org838a4e1" class="outline-2">
+<h2 id="org838a4e1">Problem 4</h2>
+<div class="outline-text-2" id="text-org838a4e1">
+<p>
+First, implement <code>num_factors</code>, which takes in a positive integer <code>n</code>
+and determines the number of factors that <code>n</code> has.
+</p>
+<blockquote>
+<p>
+<code>1</code> and <code>n</code> are factors of <code>n</code> too.
+</p>
+</blockquote>
+
+<p>
+After, implement <code>i_love_math</code> and <code>math_update</code>.
+</p>
+
+<ul class="org-ul">
+<li><code>i_love_math</code> takes in opponent&rsquo;s HP and returns their new HP after
+triggering the &ldquo;I Love Math&rdquo; spell, even if the HP remains
+unchanged. For example, <code>i_love_math(5)</code> should return 5 and
+<code>i_love_math(21)</code> should return 19. You should use <code>num_factors</code> in
+your implementation.</li>
+<li><code>math_update</code> returns the opponent&rsquo;s new HP after the current player
+casts the spell as determined by <code>spell_spec</code>, taking both &ldquo;Heavy
+Tome&rdquo; and &ldquo;I Love Math&rdquo; into account. You should use <code>i_love_math</code>
+in this function.</li>
+</ul>
+
+<blockquote>
+<p>
+Hints:
+</p>
+
+<ul class="org-ul">
+<li>You can look at the implementation of <code>simple_update</code> provided in
+<code>dnd.py</code> and use that as a starting point for your <code>math_update</code>
+function.</li>
+<li>Recall that <code>take_turn</code> already took the &ldquo;Heavy Tome&rdquo; rule into
+consideration.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgcdd0705" class="outline-2">
+<h2 id="orgcdd0705">Problem 5</h2>
+<div class="outline-text-2" id="text-orgcdd0705">
+<p>
+Implement the <code>fight</code> function, which simulates a full fight. Players
+take turns casting spells until one of the players is dead (their HP
+is at or below zero). The function then returns the final HPs of both
+players.
+</p>
+
+<p>
+To determine which spell is cast each turn, call the current player&rsquo;s
+strategy function (Player 0 uses <code>strategy0</code> and Player 1 uses
+<code>strategy1</code>). A strategy is a function that, given a player&rsquo;s HP and
+their opponent&rsquo;s HP, returns the spell specified that will determine
+the spell of the current player will roll in that turn. A simple
+example strategy is <code>always_cast_5</code> which appears above <code>fight</code>.
+</p>
+
+<p>
+To determine the updated HP for the opponent after they the current
+player&rsquo;s turn, call the update function. An update function takes the
+spell specifier, the current player&rsquo;s HP, the opponent&rsquo;s HP, and the
+dice function used to simulate rolling dice. It returns the updated HP
+of the opponent after the turn. Two examples of update functions are
+<code>simple_update</code> and <code>math_update</code>. Remember, update functions return
+the opponent&rsquo;s new HP after the turn, not just the change in HP.
+</p>
+
+<p>
+The fight ends when a player has their HP reach 0 or below at the end
+of a turn. <code>fight</code> will then return the final HPs of both players,
+with Player 0&rsquo;s HP first and Player 1&rsquo;s HP second.
+</p>
+
+<p>
+Some example calls to play are:
+</p>
+
+<ul class="org-ul">
+<li><code>play(always_cast_5, always_cast_5, simple_update)</code> simulates two
+players that both always cast &ldquo;Advanced Magic Missile&rdquo; at level 5
+each turn, and ignore the &ldquo;I Love Math&rdquo; concentration spell.</li>
+<li><code>play(always_cast_5, always_cast_5, math_update)</code> simulates two
+players that both always cast &ldquo;Advanced Magic Missile&rdquo; at level 5
+each turn, while maintaining the &ldquo;I Love Math&rdquo; concentration
+spell. (i.e. with all the spells).</li>
+</ul>
+
+<blockquote>
+<p>
+<b>Important</b>: For the user interface to work, a strategy function should
+be called only once per turn. Only call <code>strategy0</code> when it is Player
+0&rsquo;s turn and only call <code>strategy1</code> when it is Player 1&rsquo;s turn.
+</p>
+
+<p>
+<b>Hints</b>:
+</p>
+<ul class="org-ul">
+<li>If <code>who</code> is the current player, the next player is <code>1 - who</code>.</li>
+<li>To call <code>play(always_cast_5, always_cast_5, math_update)</code> and print
+out what happens each turn, run <code>python3 dnd_ui.py</code> from the
+terminal. You can study the file and change the strategies as you
+wish.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org7246009" class="outline-2">
+<h2 id="org7246009">Problem 6</h2>
+<div class="outline-text-2" id="text-org7246009">
+<p>
+Now, you will experiment with ways to improve upon the simple
+<code>always_roll_5</code> strategy of always casting Magic Missile at level 5. A
+strategy is a function that takes two arguments: the current player&rsquo;s
+HP and their opponent&rsquo;s HP. It returns the specifier of a spell: a
+number from 0 to 10 (inclusive).
+</p>
+
+<p>
+Implement <code>always_cast</code>, a higher-order function that takes a spell
+specifier <code>n</code> and returns a strategy function that always casts the
+spell according to <code>n</code>. Thus, <code>always_cast(5)</code> would be equivalent to
+<code>always_cast_5</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d92d19" class="outline-2">
+<h2 id="org8d92d19">Problem 7</h2>
+<div class="outline-text-2" id="text-org8d92d19">
+<p>
+A strategy has a fixed number of possible argument values. For
+example, in a fight where both opponents have initial HP of 100, there
+are only 100 possible <code>hp</code> values (1-100) and 100 possible
+<code>opponent_hp</code> values (1-100), resulting in 10,000 possible argument
+combinations to a strategy function.
+</p>
+
+<p>
+Implement <code>is_always_cast</code>, which takes a strategy and returns whether
+that strategy always casts the same spell for every possible argument
+combination, where each HP is up to <code>INITIAL_HP</code> points.
+</p>
+
+<p>
+Reminder: The fight continues until one player&rsquo;s HP reaches 0 (in the
+above example initial HP is set to 100, but it could be any
+number). Ensure your solution considers every possible combination of
+<code>hp</code> and <code>opponent_hp</code> for the specified initial HP.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb6fbb7d" class="outline-2">
+<h2 id="orgb6fbb7d">Problem 8</h2>
+<div class="outline-text-2" id="text-orgb6fbb7d">
+<p>
+Implement <code>make_averaged</code>, which is a higher-order function that takes
+a function <code>original_function</code> as an argument.
+</p>
+
+<p>
+The return value of <code>make_averaged</code> is a function that takes in the
+same arguments as <code>original_function</code>. When called with specific
+arguments, this function should repeatedly call <code>original_function</code> on
+those same arguments, <code>samples_count</code> times, and return the average of
+the results. Take a look at the <code>make_averaged</code> doctest. Be sure to
+keep track of what values are being passed into the function!
+</p>
+
+<p>
+Doctest Walkthrough: Take a close look at the <code>make_averaged</code>
+doctest. Here, <code>original_function</code> is <code>magic_missile</code>. Notice the line
+<code>averaged_dice(1, dice)</code>. This implies that the arguments for
+<code>magic_missile</code> are <code>(1, dice)</code> (think about why) Observe how
+<code>averaged_dice</code> accepts the same arguments as <code>magic_missile</code>. The
+arguments are not passed directly to <code>magic_missile</code> but rather to
+<code>averaged_dice</code> (think about how this can be achieved). Keep in mind,
+<code>make_averaged</code> should work with any <code>original_function</code> that shares
+the same argument structure as the function returned by
+<code>make_averaged</code>. In this example, rolling a single die is considered a
+sample (<code>magic_missile(1, dice)</code>). Since <code>samples_count</code> is set to 40,
+this sampling is repeated 40 times. The <code>make_averaged</code> function then
+calculates the average result of these 40 calls to <code>magic_missile</code>.
+</p>
+
+<p>
+Important: To implement this function, you will need to use a new
+piece of Python syntax. We would like to write a function that accepts
+an arbitrary number of arguments, and then calls another function
+using exactly those arguments. Here&rsquo;s how it works.
+</p>
+
+<p>
+Instead of listing formal parameters for a function, you can write
+<code>*args</code>, which represents all of the arguments that get passed into
+the function. We can then call another function with these same
+arguments by passing these <code>*args</code> into this other function. For
+example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #0000FF; font-weight: bold;">def</span> <span style="color: #006699;">printed</span>(f):
+...     <span style="color: #0000FF; font-weight: bold;">def</span> <span style="color: #006699;">print_and_return</span>(*args):
+...         result = f(*args)
+...         <span style="color: #006FE0;">print</span>(<span style="color: #008000;">'Result:'</span>, result)
+...         <span style="color: #0000FF; font-weight: bold;">return</span> result
+...     <span style="color: #0000FF; font-weight: bold;">return</span> print_and_return
+&gt;&gt;&gt; printed_pow = printed(<span style="color: #006FE0;">pow</span>)
+&gt;&gt;&gt; printed_pow(2, 8)  <span style="color: #8D8D84; font-style: italic;"># *args represents the arguments (2, 8)</span>
+Result: 256
+256
+&gt;&gt;&gt; printed_abs = printed(<span style="color: #006FE0;">abs</span>)
+&gt;&gt;&gt; printed_abs(-10)  <span style="color: #8D8D84; font-style: italic;"># *args represents one argument (-10)</span>
+Result: 10
+10
+</pre>
+</div>
+
+<p>
+Here, we can pass any number of arguments into <code>print_and_return</code> via
+the <code>*args</code> syntax. We can also use <code>*args</code> inside our
+<code>print_and_return</code> function to make another function call with the
+same arguments. As an optional exercise, you can also learn about the
+<code>**kwargs</code> syntax and implement it yourself.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge3c1a81" class="outline-2">
+<h2 id="orge3c1a81">Problem 9</h2>
+<div class="outline-text-2" id="text-orge3c1a81">
+<p>
+Implement <code>max_scoring_spell_level</code>, which runs an experiment to
+determine the spell level (from 1 to 10) that gives the maximum
+average damage for a turn. Your implementation should use
+<code>make_averaged</code> and <code>magic_missile</code>.
+</p>
+
+<p>
+If two spell levels are tied for the maximum damage, return the lower
+number. For example, if both 3 and 6 achieve the same maximum average
+damage, return 3.
+</p>
+
+<p>
+Important: In order to pass all of our tests, please make sure that
+you are testing spell levels starting from 1 going up to 10, rather
+than from 10 to 1.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org87d12e3" class="outline-2">
+<h2 id="org87d12e3">Running experiments</h2>
+<div class="outline-text-2" id="text-org87d12e3">
+<p>
+The provided <code>run_experiments</code> function calls
+<code>max_scoring_spell_level(six_sided)</code> and prints the result. You will
+likely find that rolling 6 dice maximizes the result of
+<code>magic_missile</code> using six-sided dice.
+</p>
+
+<p>
+To call this function and see the result, run <code>dnd.py</code> with the <code>-r</code>
+flag:
+</p>
+
+<p>
+<code>python3 dnd.py -r</code>
+</p>
+
+<p>
+In addition, run<sub>experiments</sub> compares various strategies to
+<code>always_cast(6)</code>. You are welcome to change the implementation of
+<code>run_experiments</code> as you wish. Note that running experiments with
+<code>tome_strategy</code> and <code>math_strategy</code> will not have accurate results
+until you implement them in the next two problems.
+</p>
+
+<p>
+Some of the experiments may take up to a minute to run. You can always
+reduce the number of trials in your call to <code>make_averaged</code> to speed
+up experiments.
+</p>
+
+<p>
+Running experiments won&rsquo;t affect your score on the project.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgefa1484" class="outline-2">
+<h2 id="orgefa1484">Problem 10</h2>
+<div class="outline-text-2" id="text-orgefa1484">
+<p>
+A strategy can try to take advantage of the Heavy Tome rule by rolling
+0 when it is most beneficial to do so. Implement <code>tome_strategy</code>,
+which returns 0 whenever casting Heavy Tome would deal at least
+<code>threshold</code> damage and returns <code>spell_level</code> otherwise. This strategy
+should not also take into account I Love Math.
+</p>
+
+<blockquote>
+<p>
+Hint: You can use the <code>heavy_tome</code> function you defined in Problem 2.
+</p>
+</blockquote>
+
+<p>
+You should find that running <code>python3 dnd.py -r</code> now shows a win rate
+for <code>tome_strategy</code> close to 74–76%.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org435e08d" class="outline-2">
+<h2 id="org435e08d">Problem 11</h2>
+<div class="outline-text-2" id="text-org435e08d">
+<p>
+A better strategy would take advantage of both Heavy Tome and I Love
+Math in combination. For example, if a player has 53 HP and their
+opponent has 61, casting Heavy Tome would bring them down to 49, and
+after I Love Math further down to 47: a damage of 61 - 47 = 14!
+</p>
+
+<p>
+The <code>math_strategy</code> returns spell specifier 0 whenever Heavy Tome,
+followed by I Love Math, would deal at least <code>threshold</code> damage.
+</p>
+
+<blockquote>
+<p>
+Hint: You can use the <code>math_update</code> function you defined in Problem 4.
+</p>
+</blockquote>
+
+<p>
+You should find that running <code>python3 dnd.py -r</code> now shows a win rate
+for <code>math_strategy</code> close to 76–78%.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org919f075" class="outline-2">
+<h2 id="org919f075">Optional: Problem 12</h2>
+<div class="outline-text-2" id="text-org919f075">
+<p>
+Implement <code>final_strategy</code>, which combines these ideas and any other
+ideas you have to achieve a high win rate against the baseline
+strategy. Some suggestions:
+</p>
+
+<ul class="org-ul">
+<li>If your opponent has little HP left, it&rsquo;s no benefit to dealing more
+damage than what they have left. Check whether you can finish the
+fight by casting low level spells. If you are in the lead, you might
+decide to take fewer risks.</li>
+
+<li>Instead of using a <code>threshold</code>, cast Heavy Tome whenever it would
+deal more damage on average than casting a level 6 Arrow.</li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+I&rsquo;m bending the rules though.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+that means you roll 1 die with 6 sides (1d6) and deal damage
+equal to the number rolled on the die.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

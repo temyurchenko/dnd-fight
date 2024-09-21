@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-21 Sat 15:07 -->
+<!-- 2024-09-21 Sat 16:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Boss Fight</title>
@@ -336,14 +336,36 @@ In this phase you will develop a simulator for the fight.
 <h3 id="org096a8a7">Problem 0</h3>
 <div class="outline-text-3" id="text-org096a8a7">
 <p>
-Download the files <a href="code/dice.py"><code>dice.py</code></a>, <a href="code/dnd.py"><code>dnd.py</code></a>, <a href="code/dnd_ui.py"><code>dnd_ui.py</code></a> and place them in
-the same directory. You&rsquo;ll write your solutions in <code>dnd.py</code>.
+Download the files <a href="code/dnd.py"><code>dnd.py</code></a>, <a href="code/dnd_ui.py"><code>dnd_ui.py</code></a>, <a href="code/tests.py"><code>tests.py</code></a>, <a href="code/dice.py"><code>dice.py</code></a> and
+place them in the same directory. You&rsquo;ll write your solutions in
+<code>dnd.py</code>.
 </p>
 
 <p>
 The <code>dnd_ui.py</code> will be useful for simulating the fight once you&rsquo;re
-finished with Problem 5.
+finished with Phase 1.
 </p>
+
+<p>
+You will use <code>tests.py</code> for self-testing. Open the file and you will
+many functions named <code>test_problem&lt;X&gt;</code>. These functions are
+tests. Each one corresponds to one of the problems. You will want to
+run them one by one, in order, as you complete the problems. Here&rsquo;s
+how to use the test suite:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">to check an individual test function, find its name and run</span>
+python -m unittest tests.TestLogic.&lt;test_name&gt;
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">examples:</span>
+python -m unittest tests.TestLogic.test_problem1
+python -m unittest tests.TestLogic.test_problem2
+python -m unittest tests.TestLogic.test_problem4_num_factors
+python -m unittest tests.TestLogic.test_problem4_i_love_math
+python -m unittest tests.TestLogic.test_problem8_make_averaged
+<span style="color: #8D8D84;"># </span><span style="color: #8D8D84; font-style: italic;">finally, use the following to run /all/ tests</span>
+python -m unittest
+</pre>
+</div>
 
 <p>
 The <code>dice.py</code> file represents dice using non-pure zero-argument

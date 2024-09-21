@@ -61,7 +61,7 @@ h4 {
   margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
-p, ul, blockquote, pre, td, th, label {
+p, ul, blockquote, pre, td, th, label, div.org-src-container {
 	margin: 0;
 	font-size: 1em;
 	line-height: 1.5em;

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-07 Sat 23:26 -->
+<!-- 2024-09-21 Sat 15:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Boss Fight</title>
@@ -324,9 +324,17 @@ further to 47.
 </div>
 </div>
 
-<div id="outline-container-org096a8a7" class="outline-2">
-<h2 id="org096a8a7">Problem 0</h2>
-<div class="outline-text-2" id="text-org096a8a7">
+<div id="outline-container-orga990943" class="outline-2">
+<h2 id="orga990943">Phase 1: simulator</h2>
+<div class="outline-text-2" id="text-orga990943">
+<p>
+In this phase you will develop a simulator for the fight.
+</p>
+</div>
+
+<div id="outline-container-org096a8a7" class="outline-3">
+<h3 id="org096a8a7">Problem 0</h3>
+<div class="outline-text-3" id="text-org096a8a7">
 <p>
 Download the files <a href="code/dice.py"><code>dice.py</code></a>, <a href="code/dnd.py"><code>dnd.py</code></a>, <a href="code/dnd_ui.py"><code>dnd_ui.py</code></a> and place them in
 the same directory. You&rsquo;ll write your solutions in <code>dnd.py</code>.
@@ -356,9 +364,9 @@ Make sure to format your solutions using <a href="https://github.com/psf/black?t
 </div>
 </div>
 
-<div id="outline-container-org0dda7f8" class="outline-2">
-<h2 id="org0dda7f8">Problem 1</h2>
-<div class="outline-text-2" id="text-org0dda7f8">
+<div id="outline-container-org0dda7f8" class="outline-3">
+<h3 id="org0dda7f8">Problem 1</h3>
+<div class="outline-text-3" id="text-org0dda7f8">
 <p>
 Implement the <code>magic_missile</code> function in <code>dnd.py</code>. It takes two
 arguments: a positive integer called <code>spell_level</code>, which specifies
@@ -381,9 +389,9 @@ interface will work correctly).
 </div>
 </div>
 
-<div id="outline-container-orgbb8c095" class="outline-2">
-<h2 id="orgbb8c095">Problem 2</h2>
-<div class="outline-text-2" id="text-orgbb8c095">
+<div id="outline-container-orgbb8c095" class="outline-3">
+<h3 id="orgbb8c095">Problem 2</h3>
+<div class="outline-text-3" id="text-orgbb8c095">
 <p>
 Implement <code>heavy_tome</code>, which takes the player&rsquo;s current HP
 <code>player_hp</code> and the opponent&rsquo;s current HP <code>opponent_hp</code>, and returns
@@ -409,9 +417,9 @@ been used.
 </div>
 </div>
 
-<div id="outline-container-orgde1addc" class="outline-2">
-<h2 id="orgde1addc">Problem 3</h2>
-<div class="outline-text-2" id="text-orgde1addc">
+<div id="outline-container-orgde1addc" class="outline-3">
+<h3 id="orgde1addc">Problem 3</h3>
+<div class="outline-text-3" id="text-orgde1addc">
 <p>
 Implement the <code>take_turn</code> function, which returns the damage dealt on
 a turn by either casting &ldquo;Advanced Magic Missile&rdquo; at level
@@ -427,9 +435,9 @@ repeating their implementations.
 </div>
 </div>
 
-<div id="outline-container-org838a4e1" class="outline-2">
-<h2 id="org838a4e1">Problem 4</h2>
-<div class="outline-text-2" id="text-org838a4e1">
+<div id="outline-container-org838a4e1" class="outline-3">
+<h3 id="org838a4e1">Problem 4</h3>
+<div class="outline-text-3" id="text-org838a4e1">
 <p>
 First, implement <code>num_factors</code>, which takes in a positive integer <code>n</code>
 and determines the number of factors that <code>n</code> has.
@@ -472,9 +480,9 @@ consideration.</li>
 </div>
 </div>
 
-<div id="outline-container-orgcdd0705" class="outline-2">
-<h2 id="orgcdd0705">Problem 5</h2>
-<div class="outline-text-2" id="text-orgcdd0705">
+<div id="outline-container-orgcdd0705" class="outline-3">
+<h3 id="orgcdd0705">Problem 5</h3>
+<div class="outline-text-3" id="text-orgcdd0705">
 <p>
 Implement the <code>fight</code> function, which simulates a full fight. Players
 take turns casting spells until one of the players is dead (their HP
@@ -534,17 +542,23 @@ be called only once per turn. Only call <code>strategy0</code> when it is Player
 <ul class="org-ul">
 <li>If <code>who</code> is the current player, the next player is <code>1 - who</code>.</li>
 <li>To call <code>play(always_cast_5, always_cast_5, math_update)</code> and print
-out what happens each turn, run <code>python3 dnd_ui.py</code> from the
-terminal. You can study the file and change the strategies as you
-wish.</li>
+out what happens each turn, use <code>dnd_ui.py</code>. You can study the file
+and change the strategies as you wish.</li>
+<li>From the terminal, run
+<ul class="org-ul">
+<li><code>python dnd_ui.py</code> for two computer players</li>
+<li><code>python dnd_ui.py -n 1</code> for one human and one computer player</li>
+<li><code>python dnd_ui.py -n 2</code> for two human players</li>
+</ul></li>
 </ul>
 </blockquote>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org7246009" class="outline-2">
-<h2 id="org7246009">Problem 6</h2>
-<div class="outline-text-2" id="text-org7246009">
+<div id="outline-container-org7555973" class="outline-2">
+<h2 id="org7555973">Phase 2: strategies</h2>
+<div class="outline-text-2" id="text-org7555973">
 <p>
 Now, you will experiment with ways to improve upon the simple
 <code>always_roll_5</code> strategy of always casting Magic Missile at level 5. A
@@ -552,7 +566,11 @@ strategy is a function that takes two arguments: the current player&rsquo;s
 HP and their opponent&rsquo;s HP. It returns the specifier of a spell: a
 number from 0 to 10 (inclusive).
 </p>
+</div>
 
+<div id="outline-container-org7246009" class="outline-3">
+<h3 id="org7246009">Problem 6</h3>
+<div class="outline-text-3" id="text-org7246009">
 <p>
 Implement <code>always_cast</code>, a higher-order function that takes a spell
 specifier <code>n</code> and returns a strategy function that always casts the
@@ -562,9 +580,9 @@ spell according to <code>n</code>. Thus, <code>always_cast(5)</code> would be eq
 </div>
 </div>
 
-<div id="outline-container-org8d92d19" class="outline-2">
-<h2 id="org8d92d19">Problem 7</h2>
-<div class="outline-text-2" id="text-org8d92d19">
+<div id="outline-container-org8d92d19" class="outline-3">
+<h3 id="org8d92d19">Problem 7</h3>
+<div class="outline-text-3" id="text-org8d92d19">
 <p>
 A strategy has a fixed number of possible argument values. For
 example, in a fight where both opponents have initial HP of 100, there
@@ -588,9 +606,9 @@ number). Ensure your solution considers every possible combination of
 </div>
 </div>
 
-<div id="outline-container-orgb6fbb7d" class="outline-2">
-<h2 id="orgb6fbb7d">Problem 8</h2>
-<div class="outline-text-2" id="text-orgb6fbb7d">
+<div id="outline-container-orgb6fbb7d" class="outline-3">
+<h3 id="orgb6fbb7d">Problem 8</h3>
+<div class="outline-text-3" id="text-orgb6fbb7d">
 <p>
 Implement <code>make_averaged</code>, which is a higher-order function that takes
 a function <code>original_function</code> as an argument.
@@ -664,9 +682,9 @@ same arguments. As an optional exercise, you can also learn about the
 </div>
 </div>
 
-<div id="outline-container-orge3c1a81" class="outline-2">
-<h2 id="orge3c1a81">Problem 9</h2>
-<div class="outline-text-2" id="text-orge3c1a81">
+<div id="outline-container-orge3c1a81" class="outline-3">
+<h3 id="orge3c1a81">Problem 9</h3>
+<div class="outline-text-3" id="text-orge3c1a81">
 <p>
 Implement <code>max_scoring_spell_level</code>, which runs an experiment to
 determine the spell level (from 1 to 10) that gives the maximum
@@ -688,9 +706,9 @@ than from 10 to 1.
 </div>
 </div>
 
-<div id="outline-container-org87d12e3" class="outline-2">
-<h2 id="org87d12e3">Running experiments</h2>
-<div class="outline-text-2" id="text-org87d12e3">
+<div id="outline-container-org87d12e3" class="outline-3">
+<h3 id="org87d12e3">Running experiments</h3>
+<div class="outline-text-3" id="text-org87d12e3">
 <p>
 The provided <code>run_experiments</code> function calls
 <code>max_scoring_spell_level(six_sided)</code> and prints the result. You will
@@ -727,9 +745,9 @@ Running experiments won&rsquo;t affect your score on the project.
 </div>
 </div>
 
-<div id="outline-container-orgefa1484" class="outline-2">
-<h2 id="orgefa1484">Problem 10</h2>
-<div class="outline-text-2" id="text-orgefa1484">
+<div id="outline-container-orgefa1484" class="outline-3">
+<h3 id="orgefa1484">Problem 10</h3>
+<div class="outline-text-3" id="text-orgefa1484">
 <p>
 A strategy can try to take advantage of the Heavy Tome rule by rolling
 0 when it is most beneficial to do so. Implement <code>tome_strategy</code>,
@@ -751,9 +769,9 @@ for <code>tome_strategy</code> close to 74–76%.
 </div>
 </div>
 
-<div id="outline-container-org435e08d" class="outline-2">
-<h2 id="org435e08d">Problem 11</h2>
-<div class="outline-text-2" id="text-org435e08d">
+<div id="outline-container-org435e08d" class="outline-3">
+<h3 id="org435e08d">Problem 11</h3>
+<div class="outline-text-3" id="text-org435e08d">
 <p>
 A better strategy would take advantage of both Heavy Tome and I Love
 Math in combination. For example, if a player has 53 HP and their
@@ -779,9 +797,9 @@ for <code>math_strategy</code> close to 76–78%.
 </div>
 </div>
 
-<div id="outline-container-org919f075" class="outline-2">
-<h2 id="org919f075">Optional: Problem 12</h2>
-<div class="outline-text-2" id="text-org919f075">
+<div id="outline-container-org919f075" class="outline-3">
+<h3 id="org919f075">Optional: Problem 12</h3>
+<div class="outline-text-3" id="text-org919f075">
 <p>
 Implement <code>final_strategy</code>, which combines these ideas and any other
 ideas you have to achieve a high win rate against the baseline
@@ -797,6 +815,17 @@ decide to take fewer risks.</li>
 <li>Instead of using a <code>threshold</code>, cast Heavy Tome whenever it would
 deal more damage on average than casting a level 6 Arrow.</li>
 </ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org791e5c2" class="outline-2">
+<h2 id="org791e5c2">Acknowledgements</h2>
+<div class="outline-text-2" id="text-org791e5c2">
+<p>
+Made by Artem Yurchenko for A201, based on Berkley&rsquo;s Game of Hog.
+</p>
 </div>
 </div>
 <div id="footnotes">

@@ -107,7 +107,7 @@ def interactive_strategy(who):
         choice = get_int(
             "Which spell do you choose? "
             "0 for Heavy Tome, "
-            "any other number for the Advanced Magic Missile at that level.",
+            "any other number for the Advanced Magic Missile at that level. ",
             0,
             10,
         )
